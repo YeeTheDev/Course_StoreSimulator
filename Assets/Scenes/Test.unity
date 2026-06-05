@@ -798,6 +798,9 @@ MonoBehaviour:
   jumpAction: {fileID: -2099379676528639254, guid: 68a786700b93a40af9e9b17f55d02bcb,
     type: 3}
   jumpForce: 4
+  lookAction: {fileID: -5630151704836100654, guid: 68a786700b93a40af9e9b17f55d02bcb,
+    type: 3}
+  lookSpeed: 10
 --- !u!143 &1499036927
 CharacterController:
   m_ObjectHideFlags: 0
