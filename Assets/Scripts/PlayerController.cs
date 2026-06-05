@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private float horiRot, vertRot;
     public float lookSpeed;
     public Transform theCam;
+    public float minLookAngle, maxLookAngle;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, horiRot, 0f);
 
         vertRot -= lookInput.y * Time.deltaTime * lookSpeed;
+        vertRot = Mathf.Clamp(vertRot, minLookAngle, maxLookAngle);
         theCam.localRotation = Quaternion.Euler(vertRot, 0f, 0f);
 
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
