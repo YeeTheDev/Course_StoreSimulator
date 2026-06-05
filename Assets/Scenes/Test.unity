@@ -795,6 +795,9 @@ MonoBehaviour:
     type: 3}
   charCon: {fileID: 1499036927}
   moveSpeed: 5
+  jumpAction: {fileID: -2099379676528639254, guid: 68a786700b93a40af9e9b17f55d02bcb,
+    type: 3}
+  jumpForce: 4
 --- !u!143 &1499036927
 CharacterController:
   m_ObjectHideFlags: 0
