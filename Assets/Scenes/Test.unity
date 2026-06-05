@@ -792,6 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAction: {fileID: -1680190386980627800, guid: 68a786700b93a40af9e9b17f55d02bcb,
     type: 3}
+  moveSpeed: 5
 --- !u!1 &1653942516
 GameObject:
   m_ObjectHideFlags: 0
