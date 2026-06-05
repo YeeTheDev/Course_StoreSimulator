@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public InputActionReference moveAction;
 
+    public CharacterController charCon;
+
     public float moveSpeed;
 
     // Start is called before the first frame update
@@ -22,6 +24,12 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log(moveInput);
 
-        transform.position = transform.position + new Vector3(moveInput.x * Time.deltaTime * moveSpeed, 0f, moveInput.y * Time.deltaTime * moveSpeed);
+        //transform.position = transform.position + new Vector3(moveInput.x * Time.deltaTime * moveSpeed, 0f, moveInput.y * Time.deltaTime * moveSpeed);
+
+        Vector3 moveAmount = new Vector3(moveInput.x, 0f, moveInput.y);
+
+        moveAmount = moveAmount * moveSpeed;
+
+        charCon.Move(moveAmount * Time.deltaTime);
     }
 }

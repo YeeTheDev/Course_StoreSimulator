@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &462215669
 Transform:
   m_ObjectHideFlags: 0
@@ -754,6 +754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499036925}
   - component: {fileID: 1499036926}
+  - component: {fileID: 1499036927}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -792,7 +793,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAction: {fileID: -1680190386980627800, guid: 68a786700b93a40af9e9b17f55d02bcb,
     type: 3}
+  charCon: {fileID: 1499036927}
   moveSpeed: 5
+--- !u!143 &1499036927
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499036924}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1653942516
 GameObject:
   m_ObjectHideFlags: 0
