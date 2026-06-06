@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StockObject : MonoBehaviour
 {
+    public StockInfo info;
+
     public float moveSpeed;
 
     private bool isPlaced;
