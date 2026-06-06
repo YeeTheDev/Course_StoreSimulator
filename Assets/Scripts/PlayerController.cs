@@ -17,8 +17,11 @@ public class PlayerController : MonoBehaviour
     public InputActionReference lookAction;
     private float horiRot, vertRot;
     public float lookSpeed;
-    public Transform theCam;
+    public Camera theCam;
     public float minLookAngle, maxLookAngle;
+
+    public LayerMask whatIsStock;
+    public float interactionRange;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
         vertRot -= lookInput.y * Time.deltaTime * lookSpeed;
         vertRot = Mathf.Clamp(vertRot, minLookAngle, maxLookAngle);
-        theCam.localRotation = Quaternion.Euler(vertRot, 0f, 0f);
+        theCam.transform.localRotation = Quaternion.Euler(vertRot, 0f, 0f);
 
 
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
@@ -73,5 +76,18 @@ public class PlayerController : MonoBehaviour
         moveAmount.y = ySpeed;
 
         charCon.Move(moveAmount * Time.deltaTime);
+
+
+        //check for pickup
+        Ray ray = theCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, interactionRange, whatIsStock))
+        {
+            Debug.Log("I see a pickup");
+        } else
+        {
+            Debug.Log("I can't see anything");
+        }
     }
 }
