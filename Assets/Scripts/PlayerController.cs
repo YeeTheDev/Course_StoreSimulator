@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     public float throwForce;
 
+    public LayerMask whatIsShelf;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,6 +115,18 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
+                {
+                    heldPickup.transform.position = hit.transform.position;
+                    heldPickup.transform.rotation = hit.transform.rotation;
+
+                    heldPickup.transform.SetParent(null);
+                    heldPickup = null;
+                }
+            }
 
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
