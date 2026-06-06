@@ -94,30 +94,35 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("I can't see anything");
         } */
-
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (heldPickup == null)
         {
-            if (Physics.Raycast(ray, out hit, interactionRange, whatIsStock))
+            if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                //Debug.Log("I see a pickup");
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsStock))
+                {
+                    //Debug.Log("I see a pickup");
 
-                heldPickup = hit.collider.gameObject;
-                heldPickup.transform.SetParent(holdPoint);
-                heldPickup.transform.localPosition = Vector3.zero;
-                heldPickup.transform.localRotation = Quaternion.identity;
+                    heldPickup = hit.collider.gameObject;
+                    heldPickup.transform.SetParent(holdPoint);
+                    heldPickup.transform.localPosition = Vector3.zero;
+                    heldPickup.transform.localRotation = Quaternion.identity;
 
-                heldPickup.GetComponent<Rigidbody>().isKinematic = true;
+                    heldPickup.GetComponent<Rigidbody>().isKinematic = true;
+                }
             }
         }
-
-        if (Mouse.current.rightButton.wasPressedThisFrame)
+        else
         {
-            Rigidbody pickupRB = heldPickup.GetComponent<Rigidbody>();
-            pickupRB.isKinematic = false;
-            pickupRB.AddForce(theCam.transform.forward * throwForce, ForceMode.Impulse);
 
-            heldPickup.transform.SetParent(null);
-            heldPickup = null;
+            if (Mouse.current.rightButton.wasPressedThisFrame)
+            {
+                Rigidbody pickupRB = heldPickup.GetComponent<Rigidbody>();
+                pickupRB.isKinematic = false;
+                pickupRB.AddForce(theCam.transform.forward * throwForce, ForceMode.Impulse);
+
+                heldPickup.transform.SetParent(null);
+                heldPickup = null;
+            }
         }
     }
 }
