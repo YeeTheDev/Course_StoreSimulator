@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsStock;
     public float interactionRange;
 
+    private GameObject heldPickup;
+    public Transform holdPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,12 +85,25 @@ public class PlayerController : MonoBehaviour
         Ray ray = theCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, interactionRange, whatIsStock))
+        /* if (Physics.Raycast(ray, out hit, interactionRange, whatIsStock))
         {
             Debug.Log("I see a pickup");
         } else
         {
             Debug.Log("I can't see anything");
+        } */
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            if (Physics.Raycast(ray, out hit, interactionRange, whatIsStock))
+            {
+                //Debug.Log("I see a pickup");
+
+                heldPickup = hit.collider.gameObject;
+                heldPickup.transform.SetParent(holdPoint);
+                heldPickup.transform.localPosition = Vector3.zero;
+                heldPickup.transform.localRotation = Quaternion.identity;
+            }
         }
     }
 }
