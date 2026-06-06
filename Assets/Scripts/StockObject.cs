@@ -8,7 +8,7 @@ public class StockObject : MonoBehaviour
 
     public float moveSpeed;
 
-    private bool isPlaced;
+    public bool isPlaced;
 
     public Rigidbody theRB;
 
