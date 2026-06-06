@@ -116,6 +116,20 @@ public class PlayerController : MonoBehaviour
                     heldPickup.Pickup();
                 }
             }
+
+            if (Mouse.current.rightButton.wasPressedThisFrame)
+            {
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
+                {
+                    heldPickup = hit.collider.GetComponent<ShelfSpaceController>().GetStock();
+
+                    if (heldPickup != null)
+                    {
+                        heldPickup.transform.SetParent(holdPoint);
+                        heldPickup.Pickup();
+                    }
+                }
+            }
         }
         else
         {
