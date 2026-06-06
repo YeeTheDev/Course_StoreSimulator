@@ -1087,6 +1087,7 @@ MonoBehaviour:
     m_Bits: 64
   interactionRange: 5
   holdPoint: {fileID: 1743407283}
+  throwForce: 10
 --- !u!143 &1499036927
 CharacterController:
   m_ObjectHideFlags: 0
