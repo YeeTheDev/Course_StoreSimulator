@@ -10,6 +10,7 @@ public class ShelfSpaceController : MonoBehaviour
     public List<StockObject> objectsOnShelf;
 
     public List<Transform> bigDrinkPoints;
+    public List<Transform> cerealPoints, tubeChipsPoints, fruitPoints, largeFruitPoints;
 
     public void PlaceStock(StockObject objectToPlace)
     {
