@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsStock;
     public float interactionRange;
 
-    private GameObject heldPickup;
+    private StockObject heldPickup;
     public Transform holdPoint;
 
     public float throwForce;
@@ -104,12 +104,16 @@ public class PlayerController : MonoBehaviour
                 {
                     //Debug.Log("I see a pickup");
 
-                    heldPickup = hit.collider.gameObject;
+                    /* heldPickup = hit.collider.gameObject;
                     heldPickup.transform.SetParent(holdPoint);
                     heldPickup.transform.localPosition = Vector3.zero;
                     heldPickup.transform.localRotation = Quaternion.identity;
 
-                    heldPickup.GetComponent<Rigidbody>().isKinematic = true;
+                    heldPickup.GetComponent<Rigidbody>().isKinematic = true; */
+
+                    heldPickup = hit.collider.GetComponent<StockObject>();
+                    heldPickup.transform.SetParent(holdPoint);
+                    heldPickup.Pickup();
                 }
             }
         }
@@ -120,19 +124,28 @@ public class PlayerController : MonoBehaviour
             {
                 if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
                 {
-                    heldPickup.transform.position = hit.transform.position;
+                    /* heldPickup.transform.position = hit.transform.position;
                     heldPickup.transform.rotation = hit.transform.rotation;
 
                     heldPickup.transform.SetParent(null);
+                    heldPickup = null; */
+
+                    heldPickup.MakePlaced();
+
+                    heldPickup.transform.SetParent(hit.transform);
                     heldPickup = null;
                 }
             }
 
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
-                Rigidbody pickupRB = heldPickup.GetComponent<Rigidbody>();
-                pickupRB.isKinematic = false;
-                pickupRB.AddForce(theCam.transform.forward * throwForce, ForceMode.Impulse);
+                //Rigidbody pickupRB = heldPickup.GetComponent<Rigidbody>();
+                //pickupRB.isKinematic = false;
+
+                heldPickup.Release();
+                heldPickup.theRB.AddForce(theCam.transform.forward * throwForce, ForceMode.Impulse);
+
+
 
                 heldPickup.transform.SetParent(null);
                 heldPickup = null;
