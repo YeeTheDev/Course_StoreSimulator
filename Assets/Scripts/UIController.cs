@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class UIController : MonoBehaviour
     }
 
     public GameObject updatePricePanel;
+
+    public TMP_Text basePriceText, currentPriceText;
+
+    public TMP_InputField priceInputField;
+
+    private StockInfo activeStockInfo;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +32,16 @@ public class UIController : MonoBehaviour
         
     }
 
-    public void OpenUpdatePrice()
+    public void OpenUpdatePrice(StockInfo stockToUpdate)
     {
         updatePricePanel.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
+
+        basePriceText.text = "$" + stockToUpdate.price;
+        currentPriceText.text = "$" + stockToUpdate.currentPrice;
+
+        activeStockInfo = stockToUpdate;
     }
 
     public void CloseUpdatePrice()
@@ -37,5 +49,12 @@ public class UIController : MonoBehaviour
         updatePricePanel.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void ApplyPriceUpdate()
+    {
+        activeStockInfo.currentPrice = float.Parse( priceInputField.text);
+
+        currentPriceText.text = "$" + activeStockInfo.currentPrice;
     }
 }
