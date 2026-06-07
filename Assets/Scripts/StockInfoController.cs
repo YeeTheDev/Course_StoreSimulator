@@ -52,4 +52,29 @@ public class StockInfoController : MonoBehaviour
 
         return infoToReturn;
     }
+
+    public void UpdatePrice(string stockName, float newPrice)
+    {
+        for (int i = 0; i < allStock.Count; i++)
+        {
+            if (allStock[i].name == stockName)
+            {
+                Debug.Log(newPrice);
+                allStock[i].currentPrice = newPrice;
+                Debug.Log(allStock[i].currentPrice);
+            }
+        }
+
+        List<ShelfSpaceController> shelves = new List<ShelfSpaceController>();
+
+        shelves.AddRange(FindObjectsByType<ShelfSpaceController>(FindObjectsSortMode.None));
+
+        foreach (ShelfSpaceController shelf in shelves)
+        {
+            if (shelf.info.name == stockName)
+            {
+                shelf.UpdateDisplayPrice(newPrice);
+            }
+        }
+    }
 }
