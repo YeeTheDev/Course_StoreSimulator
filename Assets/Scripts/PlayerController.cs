@@ -134,33 +134,44 @@ public class PlayerController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, interactionRange, whatIsStockBox))
                 {
                     heldBox = hit.collider.GetComponent<StockBoxController>();
-                    Debug.Log(heldBox.transform.name);
+
                     heldBox.transform.SetParent(boxHoldPoint);
                     heldBox.Pickup();
+
+                    if (heldBox.flap1.activeSelf == true)
+                    {
+                        heldBox.OpenClose();
+                    }
+
+                    return;
+                }
+            }
+            if (Mouse.current.rightButton.wasPressedThisFrame)
+            {
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
+                {
+                    heldPickup = hit.collider.GetComponent<ShelfSpaceController>().GetStock();
+
+                    if (heldPickup != null)
+                    {
+                        heldPickup.transform.SetParent(holdPoint);
+                        heldPickup.Pickup();
+                    }
 
                     return;
                 }
 
-                if (Mouse.current.rightButton.wasPressedThisFrame)
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsStockBox))
                 {
-                    if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
-                    {
-                        heldPickup = hit.collider.GetComponent<ShelfSpaceController>().GetStock();
-
-                        if (heldPickup != null)
-                        {
-                            heldPickup.transform.SetParent(holdPoint);
-                            heldPickup.Pickup();
-                        }
-                    }
+                    hit.collider.GetComponent<StockBoxController>().OpenClose();
                 }
+            }
 
-                if (Keyboard.current.eKey.wasPressedThisFrame)
+            if (Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
                 {
-                    if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
-                    {
-                        hit.collider.GetComponent<ShelfSpaceController>().StartPriceUpdate();
-                    }
+                    hit.collider.GetComponent<ShelfSpaceController>().StartPriceUpdate();
                 }
             }
         }
@@ -217,8 +228,12 @@ public class PlayerController : MonoBehaviour
                     heldBox.transform.SetParent(null);
                     heldBox = null;
                 }
+
+                if (Keyboard.current.eKey.wasReleasedThisFrame)
+                {
+                    heldBox.OpenClose();
+                }
             }
         }
-        
     }
 }

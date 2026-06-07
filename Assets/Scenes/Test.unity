@@ -202,6 +202,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1101798857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &21985105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -551725945087664469, guid: 2f587bf2195a1484cb474c0eec3ff206,
+    type: 3}
+  m_PrefabInstance: {fileID: 374441233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &80133714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1707,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &420537582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7633530379925704138, guid: 2f587bf2195a1484cb474c0eec3ff206,
+    type: 3}
+  m_PrefabInstance: {fileID: 374441233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &430264628
 GameObject:
   m_ObjectHideFlags: 0
@@ -4401,6 +4413,8 @@ MonoBehaviour:
   theRB: {fileID: 984267075}
   col: {fileID: 984267074}
   moveSpeed: 5
+  flap1: {fileID: 420537582}
+  flap2: {fileID: 21985105}
 --- !u!65 &984267074
 BoxCollider:
   m_ObjectHideFlags: 0
