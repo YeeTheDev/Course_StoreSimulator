@@ -150,4 +150,12 @@ public class ShelfSpaceController : MonoBehaviour
 
         return objectToReturn;
     }
+
+    public void StartPriceUpdate()
+    {
+        if (objectsOnShelf.Count > 0)
+        {
+            UIController.instance.OpenUpdatePrice();
+        }
+    }
 }
