@@ -5893,6 +5893,7 @@ MonoBehaviour:
     m_Bits: 256
   heldBox: {fileID: 0}
   boxHoldPoint: {fileID: 2117132280}
+  waitToPlaceStock: 0.1
 --- !u!143 &1499036927
 CharacterController:
   m_ObjectHideFlags: 0

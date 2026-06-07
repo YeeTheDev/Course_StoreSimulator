@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     public InputActionReference moveAction;
 
     public CharacterController charCon;
@@ -33,6 +34,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsStockBox;
     public StockBoxController heldBox;
     public Transform boxHoldPoint;
+
+    public float waitToPlaceStock;
+    private float placeStockCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -98,6 +102,7 @@ public class PlayerController : MonoBehaviour
         charCon.Move(moveAmount * Time.deltaTime);
 
 
+
         //check for pickup
         Ray ray = theCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
@@ -146,6 +151,7 @@ public class PlayerController : MonoBehaviour
                     return;
                 }
             }
+
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
                 if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
@@ -186,6 +192,7 @@ public class PlayerController : MonoBehaviour
                         /* heldPickup.transform.position = hit.transform.position;
                         heldPickup.transform.rotation = hit.transform.rotation;
 
+
                         heldPickup.transform.SetParent(null);
                         heldPickup = null; */
 
@@ -222,6 +229,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (Mouse.current.rightButton.wasPressedThisFrame)
                 {
+
                     heldBox.Release();
                     heldBox.theRB.AddForce(theCam.transform.forward * throwForce, ForceMode.Impulse);
 
@@ -239,6 +247,23 @@ public class PlayerController : MonoBehaviour
                     if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
                     {
                         heldBox.PlaceStockOnShelf(hit.collider.GetComponent<ShelfSpaceController>());
+
+                        placeStockCounter = waitToPlaceStock;
+                    }
+                }
+
+                if (Mouse.current.leftButton.isPressed)
+                {
+                    placeStockCounter -= Time.deltaTime;
+
+                    if(placeStockCounter <= 0)
+                    {
+                        if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
+                        {
+                            heldBox.PlaceStockOnShelf(hit.collider.GetComponent<ShelfSpaceController>());
+
+                            placeStockCounter = waitToPlaceStock;
+                        }
                     }
                 }
             }
