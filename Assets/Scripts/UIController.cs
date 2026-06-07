@@ -20,6 +20,8 @@ public class UIController : MonoBehaviour
 
     private StockInfo activeStockInfo;
 
+    public TMP_Text moneyText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,5 +64,10 @@ public class UIController : MonoBehaviour
         StockInfoController.instance.UpdatePrice(activeStockInfo.name, activeStockInfo.currentPrice);
 
         CloseUpdatePrice();
+    }
+
+    public void UpdateMoney(float currentMoney)
+    {
+        moneyText.text = "$" + currentMoney.ToString("F2");
     }
 }

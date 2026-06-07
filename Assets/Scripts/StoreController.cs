@@ -17,7 +17,7 @@ public class StoreController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UIController.instance.UpdateMoney(currentMoney);
     }
 
     // Update is called once per frame
@@ -40,6 +40,8 @@ public class StoreController : MonoBehaviour
     public void AddMoney(float amountToAdd)
     {
         currentMoney += amountToAdd;
+
+        UIController.instance.UpdateMoney(currentMoney);
     }
 
     public void SpendMoney(float amountToSpend)
@@ -50,6 +52,8 @@ public class StoreController : MonoBehaviour
         {
             currentMoney = 0;
         }
+
+        UIController.instance.UpdateMoney(currentMoney);
     }
 
     public bool CheckMoneyAvailable(float amountToCheck)
