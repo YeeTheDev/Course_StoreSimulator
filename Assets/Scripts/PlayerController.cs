@@ -55,6 +55,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (UIController.instance.buyMenuScreen != null)
+        {
+            if (UIController.instance.buyMenuScreen.activeSelf)
+            {
+                return;
+            }
+        }
+
 
         Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
 
