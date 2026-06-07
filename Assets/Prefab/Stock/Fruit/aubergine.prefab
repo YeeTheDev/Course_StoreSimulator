@@ -150,6 +150,7 @@ MonoBehaviour:
   info:
     name: Aubergine
     typeOfStock: 3
+    price: 0.5
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 6758377283286353818}

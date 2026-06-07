@@ -149,6 +149,7 @@ MonoBehaviour:
   info:
     name: Rings Cereal
     typeOfStock: 0
+    price: 3
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 4160874517953931097}

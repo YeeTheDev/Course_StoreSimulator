@@ -150,7 +150,8 @@ MonoBehaviour:
   info:
     name: Lemon
     typeOfStock: 3
+    price: 1.5
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 7171469852642989952}
-  col: {fileID: 0}
+  col: {fileID: 1695777992347036775}

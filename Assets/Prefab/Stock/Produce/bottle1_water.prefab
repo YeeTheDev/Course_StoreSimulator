@@ -150,6 +150,7 @@ MonoBehaviour:
   info:
     name: Water Drink
     typeOfStock: 1
+    price: 0.3
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 6479715271305427672}

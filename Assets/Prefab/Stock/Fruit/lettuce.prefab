@@ -150,6 +150,7 @@ MonoBehaviour:
   info:
     name: Lettuce
     typeOfStock: 3
+    price: 1
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 7769704817953916236}

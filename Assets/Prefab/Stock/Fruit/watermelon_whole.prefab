@@ -150,6 +150,7 @@ MonoBehaviour:
   info:
     name: Watermelon
     typeOfStock: 4
+    price: 10
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 4637478506619915576}

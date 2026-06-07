@@ -150,6 +150,7 @@ MonoBehaviour:
   info:
     name: Onion Chips
     typeOfStock: 2
+    price: 2
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 842878384772119241}

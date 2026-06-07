@@ -149,6 +149,7 @@ MonoBehaviour:
   info:
     name: Apple
     typeOfStock: 3
+    price: 1
   moveSpeed: 5
   isPlaced: 0
   theRB: {fileID: 4837232405701485130}

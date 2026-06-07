@@ -3215,15 +3215,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 68.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5735,6 +5735,7 @@ MonoBehaviour:
   info:
     name: 
     typeOfStock: 0
+    price: 0
   objectsOnShelf: []
   bigDrinkPoints:
   - {fileID: 418693911}
@@ -5851,6 +5852,7 @@ MonoBehaviour:
   - {fileID: 1582504055}
   - {fileID: 798952454}
   - {fileID: 1688480771}
+  shelfLabel: {fileID: 829547726}
 --- !u!1 &1829957703
 GameObject:
   m_ObjectHideFlags: 0
