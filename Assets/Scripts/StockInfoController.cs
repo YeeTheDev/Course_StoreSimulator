@@ -59,9 +59,7 @@ public class StockInfoController : MonoBehaviour
         {
             if (allStock[i].name == stockName)
             {
-                Debug.Log(newPrice);
                 allStock[i].currentPrice = newPrice;
-                Debug.Log(allStock[i].currentPrice);
             }
         }
 

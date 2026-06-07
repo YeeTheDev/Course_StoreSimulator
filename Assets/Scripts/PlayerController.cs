@@ -233,6 +233,14 @@ public class PlayerController : MonoBehaviour
                 {
                     heldBox.OpenClose();
                 }
+
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
+                    {
+                        heldBox.PlaceStockOnShelf(hit.collider.GetComponent<ShelfSpaceController>());
+                    }
+                }
             }
         }
     }

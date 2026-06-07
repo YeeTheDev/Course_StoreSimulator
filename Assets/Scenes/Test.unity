@@ -4327,11 +4327,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info:
-    name: 
-    typeOfStock: 0
-    price: 0
+    name: BBQ Chips
+    typeOfStock: 2
+    price: 2
     currentPrice: 0
-    stockObject: {fileID: 0}
+    stockObject: {fileID: 6920744970168410660, guid: 9695354aa18684b229d223ede1f59ded,
+      type: 3}
   bigDrinkPoints:
   - {fileID: 799545628}
   - {fileID: 1854032401}
@@ -4409,7 +4410,7 @@ MonoBehaviour:
   - {fileID: 1283854298}
   - {fileID: 539669962}
   stockInBox: []
-  testFill: 0
+  testFill: 1
   theRB: {fileID: 984267075}
   col: {fileID: 984267074}
   moveSpeed: 5
