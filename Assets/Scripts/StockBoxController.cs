@@ -150,7 +150,7 @@ public class StockBoxController : MonoBehaviour
     {
         int toReturn = 0;
 
-        switch (info.typeOfStock)
+        switch (type)
         {
             case StockInfo.StockType.bigDrink:
 

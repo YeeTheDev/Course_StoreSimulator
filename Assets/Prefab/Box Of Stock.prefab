@@ -2595,7 +2595,7 @@ MonoBehaviour:
   - {fileID: 2720790646507554970}
   - {fileID: 7570120559337693225}
   stockInBox: []
-  testFill: 1
+  testFill: 0
   theRB: {fileID: 564236826808439441}
   col: {fileID: 5359437691667553174}
   moveSpeed: 5

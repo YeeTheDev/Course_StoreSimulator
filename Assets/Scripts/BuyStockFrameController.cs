@@ -39,4 +39,14 @@ public class BuyStockFrameController : MonoBehaviour
 
         buttonText.text = "PAY: $" + boxCost.ToString("F2");
     }
+
+    public void BuyStock()
+    {
+        if (StoreController.instance.CheckMoneyAvailable(boxCost) == true)
+        {
+            StoreController.instance.SpendMoney(boxCost);
+
+            Instantiate(boxToSpawn, StoreController.instance.stockSpawnPoint.position, Quaternion.identity).SetupBox(info);
+        }
+    }
 }
