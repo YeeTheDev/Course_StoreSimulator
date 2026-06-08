@@ -2576,9 +2576,6 @@ MonoBehaviour:
   - {fileID: 6677153318336126433}
   - {fileID: 1758831290945996932}
   fruitPoints:
-  - {fileID: 3529611158611106603}
-  - {fileID: 510988005751368552}
-  largeFruitPoints:
   - {fileID: 5593912506337831285}
   - {fileID: 1217227683288043336}
   - {fileID: 8467149419242559486}
@@ -2594,6 +2591,9 @@ MonoBehaviour:
   - {fileID: 5397583592635894692}
   - {fileID: 2720790646507554970}
   - {fileID: 7570120559337693225}
+  largeFruitPoints:
+  - {fileID: 3529611158611106603}
+  - {fileID: 510988005751368552}
   stockInBox: []
   testFill: 0
   theRB: {fileID: 564236826808439441}
