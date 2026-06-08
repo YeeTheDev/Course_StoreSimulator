@@ -5,14 +5,14 @@ public class StoreController : MonoBehaviour
 {
     public static StoreController instance;
 
-    public float currentMoney = 1000f;
-
-    public Transform stockSpawnPoint;
-
     private void Awake()
     {
         instance = this;
     }
+
+    public float currentMoney = 1000f;
+
+    public Transform stockSpawnPoint, furnitureSpawnPoint;
 
     // Start is called before the first frame update
     void Start()

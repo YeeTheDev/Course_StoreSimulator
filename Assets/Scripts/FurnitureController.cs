@@ -5,6 +5,8 @@ public class FurnitureController : MonoBehaviour
     public GameObject mainObject, placingObject;
     public Collider col;
 
+    public float price;
+
     // Start is called before the first frame update
     void Start()
     {
