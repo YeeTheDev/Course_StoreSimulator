@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     public float waitToPlaceStock;
     private float placeStockCounter;
 
+    public LayerMask whatIsBin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -252,12 +254,26 @@ public class PlayerController : MonoBehaviour
 
                 if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
-                    if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
-                    {
-                        heldBox.PlaceStockOnShelf(hit.collider.GetComponent<ShelfSpaceController>());
 
-                        placeStockCounter = waitToPlaceStock;
+                    if (heldBox.stockInBox.Count > 0)
+                    {
+                        if (Physics.Raycast(ray, out hit, interactionRange, whatIsShelf))
+                        {
+                            heldBox.PlaceStockOnShelf(hit.collider.GetComponent<ShelfSpaceController>());
+
+                            placeStockCounter = waitToPlaceStock;
+                        }
+                    } else
+                    {
+                        if (Physics.Raycast(ray, out hit, interactionRange, whatIsBin))
+                        {
+                            Destroy(heldBox.gameObject);
+
+                            heldBox = null;
+                        }
                     }
+
+
                 }
 
                 if (Mouse.current.leftButton.isPressed)
