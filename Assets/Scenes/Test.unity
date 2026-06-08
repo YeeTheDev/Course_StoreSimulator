@@ -1877,7 +1877,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 144027758}
-  m_Layer: 0
+  - component: {fileID: 144027759}
+  m_Layer: 10
   m_Name: Shelving Case
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1900,6 +1901,27 @@ Transform:
   - {fileID: 945353562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!65 &144027759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144027757}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4743419, y: 2.450409, z: 0.6244192}
+  m_Center: {x: 0, y: 1.2119184, z: 0.30183744}
 --- !u!4 &146940453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6689605880770515921, guid: 9695354aa18684b229d223ede1f59ded,
@@ -3567,6 +3589,7 @@ Transform:
   m_Children:
   - {fileID: 1743407283}
   - {fileID: 2117132280}
+  - {fileID: 1434096471}
   m_Father: {fileID: 1499036925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
@@ -15369,6 +15392,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429001993}
   m_CullTransparentMesh: 1
+--- !u!1 &1434096470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1434096471}
+  m_Layer: 0
+  m_Name: Furniture Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1434096471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434096470}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.5, z: 3.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 330585546}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1434958264
 GameObject:
   m_ObjectHideFlags: 0
@@ -16473,6 +16527,11 @@ MonoBehaviour:
   whatIsBin:
     serializedVersion: 2
     m_Bits: 512
+  whatIsFurniture:
+    serializedVersion: 2
+    m_Bits: 1024
+  furniturePoint: {fileID: 1434096471}
+  heldFurniture: {fileID: 0}
 --- !u!143 &1499036927
 CharacterController:
   m_ObjectHideFlags: 0
