@@ -20,6 +20,10 @@ public class Customer : MonoBehaviour
 
     public FurnitureController currentShelfCase;
 
+    public GameObject shoppingBag;
+    private bool hasGrabbed;
+    public float waitAfterGrabbig = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,13 +75,23 @@ public class Customer : MonoBehaviour
 
                 if (points.Count == 0)
                 {
-                    browsePointsRemain--;
-                    if (browsePointsRemain > 0)
+                    if (hasGrabbed == false)
                     {
-                        GetBrowsePoint();
-                    } else
+                        GrabStock();
+                    }
+                    else
                     {
-                        StartLeaving();
+                        hasGrabbed = false;
+
+                        browsePointsRemain--;
+                        if (browsePointsRemain > 0)
+                        {
+                            GetBrowsePoint();
+                        }
+                        else
+                        {
+                            StartLeaving();
+                        }
                     }
                 }
 
@@ -167,6 +181,18 @@ public class Customer : MonoBehaviour
         currentWaitTime = points[0].waitTime;
 
         currentShelfCase = StoreController.instance.shelvingCases[selectedShelf];
+    }
+
+    public void GrabStock()
+    {
+        shoppingBag.SetActive(true);
+        hasGrabbed = true;
+
+        points.Clear();
+        points.Add(new NavPoint());
+        points[0].point = currentShelfCase.standPoint;
+        points[0].waitTime = waitAfterGrabbig * Random.Range(0.75f, 1.25f);
+        currentWaitTime = points[0].waitTime;
     }
 }
 
