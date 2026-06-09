@@ -813,6 +813,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6897238823706521140, guid: be081e7fb9607452581811b5ba31fd9b,
+        type: 3}
+      propertyPath: whatIsCheckout.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
     - target: {fileID: 7018840610852813378, guid: be081e7fb9607452581811b5ba31fd9b,
         type: 3}
       propertyPath: m_Name
@@ -3999,7 +4004,7 @@ GameObject:
   - component: {fileID: 1067409505}
   - component: {fileID: 1067409504}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: Price Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5077,7 +5082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1234047738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6588,7 +6593,7 @@ GameObject:
   - component: {fileID: 1778544842}
   - component: {fileID: 1778544841}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Sale Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6719,7 +6724,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1800092229}
-  m_Layer: 0
+  - component: {fileID: 1800092230}
+  - component: {fileID: 1800092231}
+  m_Layer: 13
   m_Name: Checkout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6743,6 +6750,41 @@ Transform:
   - {fileID: 1234047738}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1800092230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800092228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edeaaa39e9c1d4a779f4b5da37eefaac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 1067409504}
+  checkoutScreen: {fileID: 1234047737}
+--- !u!65 &1800092231
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800092228}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.39085054, y: 0.559651, z: 0.4862597}
+  m_Center: {x: 0.37796617, y: 1.2182987, z: 0.6531842}
 --- !u!1 &1828679402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: be1ec6e9433554f4eb2596c1708c4623,

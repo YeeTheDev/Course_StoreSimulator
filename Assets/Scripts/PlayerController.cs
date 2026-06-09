@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     public Transform furniturePoint;
     public FurnitureController heldFurniture;
 
+    public LayerMask whatIsCheckout;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -163,6 +165,11 @@ public class PlayerController : MonoBehaviour
                     }
 
                     return;
+                }
+
+                if (Physics.Raycast(ray, out hit, interactionRange, whatIsCheckout))
+                {
+                    hit.collider.GetComponent<Checkout>().CheckoutCustomer();
                 }
             }
 
