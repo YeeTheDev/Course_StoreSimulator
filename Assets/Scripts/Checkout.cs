@@ -20,13 +20,20 @@ public class Checkout : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShowPrice(45.32f);
+        //ShowPrice(45.32f);
+        HidePrice();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (customersInQueue.Count > 0 && checkoutScreen.activeSelf == false)
+        {
+            if (Vector3.Distance(customersInQueue[0].transform.position, queuePoint.position) < 0.1f)
+            {
+                ShowPrice(customersInQueue[0].GetTotalSpend());
+            }
+        }
     }
 
     public void ShowPrice(float priceTotal)
@@ -43,7 +50,20 @@ public class Checkout : MonoBehaviour
 
     public void CheckoutCustomer()
     {
-        HidePrice();
+        if (checkoutScreen.activeSelf == true && customersInQueue.Count > 0)
+        {
+
+            HidePrice();
+
+            StoreController.instance.AddMoney(customersInQueue[0].GetTotalSpend());
+
+            customersInQueue[0].StartLeaving();
+
+            customersInQueue.RemoveAt(0);
+
+            UpdateQueue();
+
+        }
     }
 
     public void AddCustomerToQueue(Customer newCust)

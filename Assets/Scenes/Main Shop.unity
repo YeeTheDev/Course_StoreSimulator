@@ -813,11 +813,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6897238823706521140, guid: be081e7fb9607452581811b5ba31fd9b,
-        type: 3}
-      propertyPath: whatIsCheckout.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
     - target: {fileID: 7018840610852813378, guid: be081e7fb9607452581811b5ba31fd9b,
         type: 3}
       propertyPath: m_Name

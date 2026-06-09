@@ -247,6 +247,20 @@ public class Customer : MonoBehaviour
     {
         queuePoint = newPoint;
         transform.LookAt(queuePoint);
+
+        Debug.Log(queuePoint + " - " + newPoint);
+    }
+
+    public float GetTotalSpend()
+    {
+        float total = 0f;
+
+        foreach (StockObject stock in stockInBag)
+        {
+            total += stock.info.currentPrice;
+        }
+
+        return total;
     }
 }
 
