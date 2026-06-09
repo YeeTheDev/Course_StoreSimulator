@@ -1,3 +1,5 @@
+
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +15,8 @@ public class StoreController : MonoBehaviour
     public float currentMoney = 1000f;
 
     public Transform stockSpawnPoint, furnitureSpawnPoint;
+
+    public List<FurnitureController> shelvingCases = new List<FurnitureController>();
 
     // Start is called before the first frame update
     void Start()
