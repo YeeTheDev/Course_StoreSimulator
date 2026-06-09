@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StockObject : MonoBehaviour
@@ -12,6 +10,8 @@ public class StockObject : MonoBehaviour
 
     public Rigidbody theRB;
     public Collider col;
+
+    private bool inBag;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,11 @@ public class StockObject : MonoBehaviour
         {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.zero, moveSpeed * Time.deltaTime);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, moveSpeed * Time.deltaTime);
+        }
+
+        if (inBag == true)
+        {
+            transform.localScale = Vector3.MoveTowards(transform.localScale, Vector3.zero, Time.deltaTime);
         }
     }
 
@@ -61,5 +66,12 @@ public class StockObject : MonoBehaviour
         theRB.isKinematic = true;
 
         col.enabled = false;
+    }
+
+    public void PlaceInBag()
+    {
+        inBag = true;
+
+        MakePlaced();
     }
 }
