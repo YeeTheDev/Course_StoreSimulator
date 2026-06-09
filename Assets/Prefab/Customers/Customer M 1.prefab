@@ -48,6 +48,10 @@ MonoBehaviour:
   points: []
   moveSpeed: 3
   anim: {fileID: 8812382401809614148}
+  currentState: 0
+  maxBrowsePoints: 5
+  browseTime: 2
+  currentShelfCase: {fileID: 0}
 --- !u!1001 &8812382401802334244
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,13 @@ public class Customer : MonoBehaviour
     public enum CustomerState { entering, browsing, queuing, atCheckout, leaving }
     public CustomerState currentState;
 
+    public int maxBrowsePoints = 5;
+    private int browsePointsRemain;
+
+    public float browseTime;
+
+    public FurnitureController currentShelfCase;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,12 +53,33 @@ public class Customer : MonoBehaviour
                     MoveToPoint();
                 } else
                 {
-                    StartLeaving();
+                    //StartLeaving();
+
+                    currentState = CustomerState.browsing;
+
+                    browsePointsRemain = Random.Range(1, maxBrowsePoints + 1);
+                    browsePointsRemain = Mathf.Clamp(browsePointsRemain, 1, StoreController.instance.shelvingCases.Count);
+
+                    GetBrowsePoint();
                 }
 
                     break;
 
             case CustomerState.browsing:
+
+                MoveToPoint();
+
+                if (points.Count == 0)
+                {
+                    browsePointsRemain--;
+                    if (browsePointsRemain > 0)
+                    {
+                        GetBrowsePoint();
+                    } else
+                    {
+                        StartLeaving();
+                    }
+                }
 
                 break;
 
@@ -123,6 +151,22 @@ public class Customer : MonoBehaviour
 
         points.Clear();
         points.AddRange(CustomerManager.instance.GetExitPoints());
+    }
+
+    void GetBrowsePoint()
+    {
+        points.Clear();
+
+        int selectedShelf = Random.Range(0, StoreController.instance.shelvingCases.Count);
+
+        points.Add(new NavPoint());
+        points[0].point = StoreController.instance.shelvingCases[selectedShelf].standPoint;
+
+        points[0].waitTime = browseTime * Random.Range(0.75f, 1.25f);
+
+        currentWaitTime = points[0].waitTime;
+
+        currentShelfCase = StoreController.instance.shelvingCases[selectedShelf];
     }
 }
 
