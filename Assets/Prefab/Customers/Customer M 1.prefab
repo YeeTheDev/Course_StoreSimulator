@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3161124970974522527}
   - component: {fileID: 1645089030980519878}
   m_Layer: 0
-  m_Name: Customer
+  m_Name: Customer M 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,19 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbac54d3a01764351bd5ca81f7c1f1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - point: {fileID: 0}
-    waitTime: 1
-  - point: {fileID: 0}
-    waitTime: 0
-  - point: {fileID: 0}
-    waitTime: 3
-  - point: {fileID: 0}
-    waitTime: 0
-  - point: {fileID: 0}
-    waitTime: 0.5
-  - point: {fileID: 0}
-    waitTime: 0
+  points: []
   moveSpeed: 3
   anim: {fileID: 8812382401809614148}
 --- !u!1001 &8812382401802334244
