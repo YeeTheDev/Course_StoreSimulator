@@ -254,6 +254,9 @@ MonoBehaviour:
     m_Bits: 1024
   furniturePoint: {fileID: 6456482912866479200}
   heldFurniture: {fileID: 0}
+  whatIsCheckout:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!143 &7580937729486407158
 CharacterController:
   m_ObjectHideFlags: 0
