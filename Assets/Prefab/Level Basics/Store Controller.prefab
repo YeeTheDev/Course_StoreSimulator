@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac8a803103ad40e0a7c9d568e0bb8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoney: 1000
+  currentMoney: 150
   stockSpawnPoint: {fileID: 6993601505998448880}
   furnitureSpawnPoint: {fileID: 7897737066347083887}
+  shelvingCases: []

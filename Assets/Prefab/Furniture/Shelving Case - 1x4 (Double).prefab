@@ -31032,7 +31032,7 @@ MonoBehaviour:
   mainObject: {fileID: 1551465871597417344}
   placingObject: {fileID: 8409418119476629032}
   col: {fileID: 8501950245142356830}
-  price: 500
+  price: 225
   standPoint: {fileID: 3611783142398481126}
   shelves:
   - {fileID: 5834524550550349464}
