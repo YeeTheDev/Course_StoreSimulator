@@ -63,13 +63,18 @@ public class Customer : MonoBehaviour
                 } else
                 {
                     //StartLeaving();
+                    if (StoreController.instance.shelvingCases.Count > 0)
+                    {
+                        currentState = CustomerState.browsing;
 
-                    currentState = CustomerState.browsing;
+                        browsePointsRemain = Random.Range(1, maxBrowsePoints + 1);
+                        browsePointsRemain = Mathf.Clamp(browsePointsRemain, 1, StoreController.instance.shelvingCases.Count);
 
-                    browsePointsRemain = Random.Range(1, maxBrowsePoints + 1);
-                    browsePointsRemain = Mathf.Clamp(browsePointsRemain, 1, StoreController.instance.shelvingCases.Count);
-
-                    GetBrowsePoint();
+                        GetBrowsePoint();
+                    } else
+                    {
+                        StartLeaving();
+                    }
                 }
 
                     break;

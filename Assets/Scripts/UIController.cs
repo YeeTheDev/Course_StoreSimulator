@@ -1,4 +1,4 @@
-using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;    
+        instance = this;
     }
 
     public GameObject updatePricePanel;
@@ -24,10 +24,14 @@ public class UIController : MonoBehaviour
 
     public GameObject buyMenuScreen;
 
+    public string mainMenuScene = "Main Menu";
+
+    public GameObject pauseScreen;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,6 +40,11 @@ public class UIController : MonoBehaviour
         if (Keyboard.current.tabKey.wasPressedThisFrame)
         {
             OpenCloseBuyMenu();
+        }
+
+        if(Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            PauseUpause();
         }
     }
 
@@ -88,6 +97,40 @@ public class UIController : MonoBehaviour
             buyMenuScreen.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(mainMenuScene);
+
+        Time.timeScale = 1;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+
+        Debug.Log("Quitting The Game");
+    }
+
+    public void PauseUpause()
+    {
+        if (pauseScreen.activeSelf == false)
+        {
+            pauseScreen.SetActive(true);
+
+            Cursor.lockState = CursorLockMode.None;
+
+            Time.timeScale = 0;
+        }
+        else
+        {
+            pauseScreen.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.Locked;
+
+            Time.timeScale = 1;
         }
     }
 }
