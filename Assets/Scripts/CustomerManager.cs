@@ -36,7 +36,9 @@ public class CustomerManager : MonoBehaviour
     {
         Instantiate(customersToSpawn[Random.Range(0, 16)]);
 
-        spawnCounter = timeBetweenCustomers * Random.Range(0.75f, 1.25f);
+        float realTimeBetweenCustomers = timeBetweenCustomers - (StoreController.instance.shelvingCases.Count / 2);
+        realTimeBetweenCustomers = Mathf.Clamp(realTimeBetweenCustomers, 8, timeBetweenCustomers);
+        spawnCounter = realTimeBetweenCustomers * Random.Range(0.75f, 1.25f);
     }
 
     public List<NavPoint> GetEntryPoints()

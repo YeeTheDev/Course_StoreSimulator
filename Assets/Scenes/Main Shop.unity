@@ -1808,7 +1808,7 @@ MonoBehaviour:
   - {fileID: 2823151949527726547, guid: 19d735631005547a691357d04a470af0, type: 3}
   - {fileID: 2823151949527726547, guid: f78f455fb65154975a9f4c2d28d4bf8d, type: 3}
   - {fileID: 2823151949527726547, guid: 7683ced56a7414a2da93232515643bc4, type: 3}
-  timeBetweenCustomers: 10
+  timeBetweenCustomers: 20
   entryPointsLeft:
   - point: {fileID: 2077224733}
     waitTime: 0
